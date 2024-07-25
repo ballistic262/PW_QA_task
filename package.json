@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "Recruitment task for QAs with Playwright.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "debug": "playwright test --debug"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.45.3",
     "@types/node": "^20.14.12"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
