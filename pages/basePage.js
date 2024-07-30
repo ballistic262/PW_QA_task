@@ -17,5 +17,4 @@ exports.BasePage = class BasePage {
     await this.shoppingCart.click();
     await expect(this.title).toHaveText('Your Cart');
   }
- 
 };

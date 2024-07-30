@@ -9,5 +9,4 @@ export class CheckoutCompletePage {
   async verifyOrderSuccess(){
     await expect(this.successMessage).toBeVisible();
   }
-  
-}
+};

@@ -14,5 +14,4 @@ export class CheckoutOverviewPage {
   async clickFinish() {
     await this.finishButton.click();
   }
-  
-}
+};

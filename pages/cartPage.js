@@ -14,10 +14,10 @@ export class CartPage {
       .filter({ hasText: productName })
       .filter({ has: this.page.locator('[data-test="item-quantity"]', { hasText: quantity }) })
     if (notDisplayed) {
-      await expect(filteredLocator).not.toBeVisible()
+      await expect(filteredLocator).not.toBeVisible();
     }
     else {
-      await expect(filteredLocator).toBeVisible()
+      await expect(filteredLocator).toBeVisible();
     }
   }
 
@@ -33,4 +33,4 @@ export class CartPage {
   async clickCheckout() {
     this.checkoutButton.click();
   }
-}
+};

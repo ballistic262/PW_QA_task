@@ -28,5 +28,4 @@ export class CheckoutInformationPage {
   async clickContinue() {
     await this.continueButton.click();
   }
-
-}
+};

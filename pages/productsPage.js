@@ -13,9 +13,8 @@ export class ProductsPage {
     //Add one or multiple (if array is provided) products to a cart
     const products = Array.isArray(productNames) ? productNames : [productNames];
     for (const productName of products) {
-      const productNameId = formatProductName(productName)
+      const productNameId = formatProductName(productName);
       await this.generateAddToCartLocator(productNameId).click();
     }
   }
-
-}
+};
