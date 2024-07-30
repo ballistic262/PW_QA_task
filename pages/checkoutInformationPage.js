@@ -7,14 +7,26 @@ export class CheckoutInformationPage {
     this.continueButton = this.page.locator('[data-test="continue"]');
   }
 
-  async fillInformationData(firstName, lastName, postalCode){
+  async typeFirstName(firstName) {
     await this.firstNameInput.type(firstName);
+  }
+
+  async typeLastName(lastName) {
     await this.lastNameInput.type(lastName);
+  }
+
+  async typePostalCode(postalCode) {
     await this.postalCodeInput.type(postalCode);
+  }
+
+  async fillInformationData(firstName, lastName, postalCode) {
+    await this.typeFirstName(firstName);
+    await this.typeLastName(lastName);
+    await this.typePostalCode(postalCode);
   }
 
   async clickContinue() {
     await this.continueButton.click();
   }
-  
+
 }

@@ -60,9 +60,7 @@ test.describe('Checkout Tests', () => {
     const checkoutOverviewPage = new CheckoutOverviewPage(page);
 
     //Add three products to a cart
-    await productsPage.addProductToCart(product1.name);
-    await productsPage.addProductToCart(product2.name);
-    await productsPage.addProductToCart(product3.name);
+    await productsPage.addProductToCart([product1.name, product2.name, product3.name]);
     await basePage.verifyBadgeCount("3");
 
     await basePage.openCart()

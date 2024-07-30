@@ -5,13 +5,17 @@ export class ProductsPage {
     this.page = page;
   }
 
-  generateAddToCartLocator(productNameId){
+  generateAddToCartLocator(productNameId) {
     return this.page.locator(`[data-test="add-to-cart-${productNameId}"]`);
   }
-  
-  async addProductToCart(productName) {
-    const productNameId = formatProductName(productName)
-    await this.generateAddToCartLocator(productNameId).click();
+
+  async addProductToCart(productNames) {
+    //Add one or multiple (if array is provided) products to a cart
+    const products = Array.isArray(productNames) ? productNames : [productNames];
+    for (const productName of products) {
+      const productNameId = formatProductName(productName)
+      await this.generateAddToCartLocator(productNameId).click();
+    }
   }
 
 }
