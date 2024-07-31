@@ -1,22 +1,23 @@
 const { expect } = require('@playwright/test');
+const { formatProductName } = require('../helpers');
 
 exports.ProductPage = class ProductPage {
   constructor(page) {
     this.page = page;
-    this.addToCartButton = page.locator('data-test="shopping-cart-link"');
+    this.cartButton = page.locator('[data-test="shopping-cart-link"]');
   }
 
-  // Function to get the "Add to cart" button locator by product name
-  getAddToCartButtonLocator(productName) {
-    const formattedProductName = productName.toLowerCase().replace(/\s+/g, '-');
+  async addItemToCart(productName) {
+    const formattedProductName = formatProductName(productName);
     return this.page.locator(`button[data-test="add-to-cart-${formattedProductName}"]`);
   }
 
   async addToCart(productName) {
-    const addToCartButton = this.getAddToCartButtonLocator(productName);
+    const addToCartButton = await this.addItemToCart(productName);
     await addToCartButton.click();
   }
 
   async openCart() {
-    await this.addToCartButton.click();
-}};
+    await this.cartButton.click();
+  }
+};
