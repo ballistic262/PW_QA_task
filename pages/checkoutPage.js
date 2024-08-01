@@ -18,6 +18,10 @@ exports.CheckoutPage = class CheckoutPage {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.postalCodeInput.fill(postalCode);
+
+    await expect(this.firstNameInput).toHaveValue(firstName);
+    await expect(this.lastNameInput).toHaveValue(lastName);
+    await expect(this.postalCodeInput).toHaveValue(postalCode);
     }
   async clickContinue() {
     await this.continueButton.click();

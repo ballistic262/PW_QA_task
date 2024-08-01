@@ -1,25 +1,16 @@
-const { expect } = require('@playwright/test');
-const { getRandomFirstName, getRandomLastName, getRandomPostalCode} = require('../helpers.js');
+const { verifyItemsVisible } = require('../utils');
 
 exports.ConfirmationPage = class ConfirmationPage {
   constructor(page) {
     this.page = page;
-    // this.firstNameInput = page.locator('[data-test="firstName"]');
-    // this.lastNameInput = page.locator('[data-test="lastName"]');
-    // this.postalCodeInput = page.locator('[data-test="postalCode"]')
-    // this.continueBtn = page.locator('[data-test="continue"]');
+    this.finishButton = page.locator('[data-test="finish"]');
   }
-  
-//   async fillForm() {
-//     const firstName = getRandomFirstName();
-//     const lastName = getRandomLastName();
-//     const postalCode = getRandomPostalCode(); 
 
-//     await this.firstNameInput.fill(firstName);
-//     await this.lastNameInput.fill(lastName);
-//     await this.postalCodeInput.fill(postalCode);
-//     }
-//   async clickContinue() {
-//     await this.continueBtn.click();
+  async verifyItemsVisible(...itemNames) {
+    await verifyItemsVisible(this.page, ...itemNames);
+  }
+
+  async clickFinish() {
+    await this.finishButton.click();
   }  
 };
