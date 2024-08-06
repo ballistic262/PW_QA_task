@@ -1,3 +1,5 @@
+
+const BASE_URL = process.env.BASE_URL;
 exports.LoginPage = class LoginPage {
   constructor(page) {
     this.page = page;
@@ -8,7 +10,7 @@ exports.LoginPage = class LoginPage {
   }
 
   async goto() {
-    await this.page.goto('/');
+    await this.page.goto(BASE_URL);
   }
 
   async clickOnLoginButton() {
